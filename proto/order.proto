@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package hermex.order;
+
+service OrderGrpcService {
+  rpc CreateOrder (CreateOrderRequest) returns (CreateOrderResponse);
+  rpc GetOrder (GetOrderRequest) returns (GetOrderResponse);
+}
+
+message OrderItemMessage {
+  string productId = 1;
+  int32 quantity = 2;
+  double price = 3;
+}
+
+message CreateOrderRequest {
+  string userId = 1;
+  repeated OrderItemMessage items = 2;
+  optional string deliveryAddress = 3;
+}
+
+message CreateOrderResponse {
+  string orderId = 1;
+  string status = 2;
+  double totalAmount = 3;
+  string currency = 4;
+  string createdAt = 5;
+}
+
+message GetOrderRequest {
+  string orderId = 1;
+}
+
+message GetOrderResponse {
+  string orderId = 1;
+  string userId = 2;
+  string status = 3;
+  double totalAmount = 4;
+  string currency = 5;
+  repeated OrderItemMessage items = 6;
+  optional string deliveryAddress = 7;
+  string createdAt = 8;
+  string updatedAt = 9;
+}
