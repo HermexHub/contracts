@@ -38,6 +38,7 @@ export interface GetOrderResponse {
 
 export const ORDER_PACKAGE_NAME = 'hermex.order'
 export const ORDER_SERVICE_NAME = 'OrderGrpcService'
-export const ORDER_PROTO_PATH = path.resolve(__dirname, '../../proto/order.proto')
-
-
+export const ORDER_PROTO_PATH = path.resolve(
+	__dirname,
+	'../../../proto/order.proto'
+)
