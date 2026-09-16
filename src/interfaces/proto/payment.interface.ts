@@ -43,3 +43,11 @@ export const PAYMENT_PROTO_PATH = path.resolve(
 	__dirname,
 	'../../../proto/payment.proto'
 )
+
+export const PAYMENT_GRPC_METHODS = {
+	GET_PAYMENT_SESSION: 'GetPaymentSession',
+	CONFIRM_PAYMENT: 'ConfirmPayment'
+} as const
+
+export type PaymentGrpcMethod =
+	(typeof PAYMENT_GRPC_METHODS)[keyof typeof PAYMENT_GRPC_METHODS]

@@ -42,3 +42,11 @@ export const ORDER_PROTO_PATH = path.resolve(
 	__dirname,
 	'../../../proto/order.proto'
 )
+
+export const ORDER_GRPC_METHODS = {
+	CREATE_ORDER: 'CreateOrder',
+	GET_ORDER: 'GetOrder'
+} as const
+
+export type OrderGrpcMethod =
+	(typeof ORDER_GRPC_METHODS)[keyof typeof ORDER_GRPC_METHODS]
