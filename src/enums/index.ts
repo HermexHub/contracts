@@ -1,5 +1,6 @@
 export * from './order-status.enum'
 export * from './payment-status.enum'
+export * from './payment-scenario.enum'
 export * from './rabbit-exchanges.enum'
 export * from './routing-keys.enum'
 export * from './queues.enum'

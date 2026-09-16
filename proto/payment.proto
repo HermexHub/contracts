@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package hermex.payment;
+
+service PaymentGrpcService {
+  rpc GetPaymentSession (GetPaymentSessionRequest) returns (GetPaymentSessionResponse);
+  rpc ConfirmPayment (ConfirmPaymentRequest) returns (ConfirmPaymentResponse);
+}
+
+message GetPaymentSessionRequest {
+  string orderId = 1;
+}
+
+message GetPaymentSessionResponse {
+  string paymentId = 1;
+  string orderId = 2;
+  string userId = 3;
+  double amount = 4;
+  string currency = 5;
+  string status = 6;
+  optional string failureReason = 7;
+  string createdAt = 8;
+  optional string updatedAt = 9;
+}
+
+message ConfirmPaymentRequest {
+  string orderId = 1;
+  string cardNumber = 2;
+  string cardHolder = 3;
+  string expiry = 4;
+  string cvv = 5;
+  optional string scenario = 6;
+  optional string idempotencyKey = 7;
+}
+
+message ConfirmPaymentResponse {
+  string paymentId = 1;
+  string orderId = 2;
+  string status = 3;
+  double amount = 4;
+  string currency = 5;
+  optional string failureReason = 6;
+  string processedAt = 7;
+}

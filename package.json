@@ -1,6 +1,6 @@
 {
   "name": "@hermex/contracts",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Shared contracts, events, and schemas for Hermex microservices",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
