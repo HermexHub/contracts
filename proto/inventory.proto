@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package hermex.inventory;
+
+service InventoryGrpcService {
+  rpc GetProducts (GetProductsRequest) returns (GetProductsResponse);
+  rpc GetProductById (GetProductByIdRequest) returns (GetProductByIdResponse);
+  rpc ValidateCart (ValidateCartRequest) returns (ValidateCartResponse);
+}
+
+message ProductItemMessage {
+  string id = 1;
+  string name = 2;
+  string sku = 3;
+  double price = 4;
+  int32 stockQuantity = 5;
+  string createdAt = 6;
+  string updatedAt = 7;
+  optional string description = 8;
+  optional string category = 9;
+  optional string imageUrl = 10;
+}
+
+message PaginationMetaMessage {
+  int32 page = 1;
+  int32 limit = 2;
+  int32 totalItems = 3;
+  int32 totalPages = 4;
+  bool hasNextPage = 5;
+  bool hasPreviousPage = 6;
+}
+
+message GetProductsRequest {
+  int32 page = 1;
+  int32 limit = 2;
+  optional bool inStockOnly = 3;
+  optional string search = 4;
+  optional string sortBy = 5;
+  optional string sortOrder = 6;
+}
+
+message GetProductsResponse {
+  repeated ProductItemMessage items = 1;
+  PaginationMetaMessage meta = 2;
+}
+
+message GetProductByIdRequest {
+  string id = 1;
+}
+
+message GetProductByIdResponse {
+  ProductItemMessage product = 1;
+}
+
+message CartItemInput {
+  string productId = 1;
+  int32 quantity = 2;
+  optional double expectedPrice = 3;
+}
+
+message ValidateCartRequest {
+  repeated CartItemInput items = 1;
+}
+
+message CartItemValidationResult {
+  string productId = 1;
+  string name = 2;
+  string sku = 3;
+  double currentPrice = 4;
+  optional double expectedPrice = 5;
+  bool priceChanged = 6;
+  int32 requestedQuantity = 7;
+  int32 availableQuantity = 8;
+  int32 effectiveQuantity = 9;
+  string stockStatus = 10;
+  double itemTotal = 11;
+  bool hasIssue = 12;
+  optional string issueReason = 13;
+}
+
+message ValidateCartResponse {
+  bool isValid = 1;
+  bool canProceed = 2;
+  repeated CartItemValidationResult items = 3;
+  double subtotal = 4;
+  string currency = 5;
+}
