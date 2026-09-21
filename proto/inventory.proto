@@ -19,6 +19,20 @@ message ProductItemMessage {
   optional string description = 8;
   optional string category = 9;
   optional string imageUrl = 10;
+  optional string brand = 11;
+  optional double rating = 12;
+  optional int32 reviewsCount = 13;
+  optional int32 warrantyMonths = 14;
+  optional string specsJson = 15;
+  repeated string images = 16;
+  optional string badge = 17;
+  optional string model = 18;
+  optional double oldPrice = 19;
+  optional string color = 20;
+  optional string colorHex = 21;
+  optional int32 weightGrams = 22;
+  optional string descriptionJson = 23;
+  optional int32 maxOrderQuantity = 24;
 }
 
 message PaginationMetaMessage {
@@ -37,6 +51,9 @@ message GetProductsRequest {
   optional string search = 4;
   optional string sortBy = 5;
   optional string sortOrder = 6;
+  optional string category = 7;
+  optional string brand = 8;
+  optional string specsFilterJson = 9;
 }
 
 message GetProductsResponse {

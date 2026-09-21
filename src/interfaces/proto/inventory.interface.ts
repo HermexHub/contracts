@@ -11,6 +11,20 @@ export interface ProductItemMessage {
 	description?: string
 	category?: string
 	imageUrl?: string
+	brand?: string
+	rating?: number
+	reviewsCount?: number
+	warrantyMonths?: number
+	specsJson?: string
+	images?: string[]
+	badge?: string
+	model?: string
+	oldPrice?: number
+	color?: string
+	colorHex?: string
+	weightGrams?: number
+	descriptionJson?: string
+	maxOrderQuantity?: number
 }
 
 export interface PaginationMetaMessage {
@@ -29,6 +43,9 @@ export interface GetProductsRequest {
 	search?: string
 	sortBy?: string
 	sortOrder?: string
+	category?: string
+	brand?: string
+	specsFilterJson?: string
 }
 
 export interface GetProductsResponse {
