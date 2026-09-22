@@ -6,7 +6,7 @@
 [ **English** ] &nbsp;•&nbsp; [ [Українська](README.ua.md) ] &nbsp;•&nbsp; [ [System Overview](../overview/README.md) ] &nbsp;•&nbsp; [ [NPM Package](https://www.npmjs.com/package/@hermex/contracts) ]
 
 <p align="center">
-  @hermex/contracts (v1.4.0) &bull; Protobuf v3 &bull; Strict TypeScript DTOs &bull; Auto-Publish CI/CD
+  @hermex/contracts (v1.4.1) &bull; Protobuf v3 &bull; Strict TypeScript DTOs &bull; Auto-Publish CI/CD
 </p>
 
 </div>
